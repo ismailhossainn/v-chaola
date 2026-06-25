@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>ভ্রাম্যমাণ চা ওয়ালা — Vrammoman Cha Wala</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ===========================================================
+     PHONE FRAME — Holds all stacked screens
+=========================================================== -->
+<div class="phone-shell" id="phoneShell">
+    <div class="status-bar"></div>
+
+    <div class="screens" id="screens">
+
+        <!-- ============= SCREEN 1 — SPLASH ============= -->
+        <section class="screen active" data-screen="splash">
+            <div class="splash-bg">
+                <span class="bubble b1"></span>
+                <span class="bubble b2"></span>
+                <span class="bubble b3"></span>
+                <span class="bubble b4"></span>
+            </div>
+
+            <div class="splash-content">
+                <div class="logo-wrap">
+                    <div class="logo-pulse"></div>
+                    <div class="logo-tile">
+                        <img src="images/image1.png" alt="logo" />
+                    </div>
+                </div>
+
+                <h1 class="brand-bn">ভ্রাম্যমাণ চা ওয়ালা</h1>
+                <p class="brand-en">Vrammoman Cha Wala</p>
+                <p class="brand-tag">Hot tea, brought to you</p>
+
+                <div class="splash-loader">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============= SCREEN 2 — LOGIN ============= -->
+        <section class="screen" data-screen="login">
+            <div class="auth-hero">
+                <div class="auth-hero-overlay"></div>
+                <div class="auth-hero-inner">
+                    <div class="logo-tile small">
+                        <img src="images/image1.png" alt="logo" />
+                    </div>
+                    <h2>স্বাগতম!</h2>
+                    <p>Welcome back to Vrammoman Cha</p>
+                </div>
+            </div>
+
+            <div class="auth-sheet">
+                <div class="auth-tabs">
+                    <button class="auth-tab active" data-tab="login">Login</button>
+                    <button class="auth-tab" data-tab="signup">Sign Up</button>
+                </div>
+
+                <form class="auth-form" id="loginForm" onsubmit="return false;">
+                    <div class="field" data-tab-only="signup" style="display:none">
+                        <span class="f-icon">👤</span>
+                        <input type="text" placeholder="Full Name / পূর্ণ নাম" />
+                    </div>
+                    <div class="field">
+                        <span class="f-icon">📱</span>
+                        <input type="text" placeholder="Phone / Email" value="01712-345678" />
+                    </div>
+                    <div class="field">
+                        <span class="f-icon">🔒</span>
+                        <input type="password" placeholder="Password" value="••••••••" />
+                        <span class="f-icon eye">👁</span>
+                    </div>
+
+                    <div class="row-between small">
+                        <label class="check"><input type="checkbox" checked /><span>Remember me</span></label>
+                        <a href="#" class="muted-link">Forgot?</a>
+                    </div>
+
+                    <button type="button" class="btn-primary btn-block ripple" id="loginBtn">
+                        <span class="btn-label">Login / লগইন</span>
+                        <span class="btn-arrow">→</span>
+                    </button>
+
+                    <div class="divider"><span>or continue with</span></div>
+
+                    <div class="social-row">
+                        <button type="button" class="social-btn"><span class="s-ico fb">f</span> Facebook</button>
+                        <button type="button" class="social-btn"><span class="s-ico g">G</span> Google</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- ============= SCREEN 3 — HOME ============= -->
+        <section class="screen" data-screen="home">
+            <header class="home-header">
+                <div class="loc-selector" id="locSelector">
+                    <span class="loc-pin">📍</span>
+                    <div class="loc-info">
+                        <p class="loc-label">Deliver to</p>
+                        <p class="loc-name" id="locName">Mirpur 10, Dhaka <span class="caret">▾</span></p>
+                    </div>
+                </div>
+                <button class="icon-btn cart-link" id="cartBtn" data-go="cart">
+                    🛒
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </button>
+            </header>
+
+            <div class="home-greet">
+                <h2>হ্যালো, Ismail! ☕</h2>
+                <p>আপনার আজকের চা কি হবে?</p>
+            </div>
+
+            <div class="search-row">
+                <span class="s-ico-l">🔍</span>
+                <input type="text" placeholder="চা, কফি, স্ন্যাক্স খুঁজুন…" />
+                <button class="filter-btn">⚙</button>
+            </div>
+
+            <!-- Categories -->
+            <div class="cat-scroll" id="catScroll">
+                <button class="cat-pill active" data-cat="all">
+                    <span class="cat-icon">🍵</span>
+                    <span>সব<br><i>All</i></span>
+                </button>
+                <button class="cat-pill" data-cat="tea">
+                    <span class="cat-icon">🫖</span>
+                    <span>চা<br><i>Tea</i></span>
+                </button>
+                <button class="cat-pill" data-cat="coffee">
+                    <span class="cat-icon">☕</span>
+                    <span>কফি<br><i>Coffee</i></span>
+                </button>
+                <button class="cat-pill" data-cat="snack">
+                    <span class="cat-icon">🥟</span>
+                    <span>স্ন্যাক্স<br><i>Snacks</i></span>
+                </button>
+                <button class="cat-pill" data-cat="dessert">
+                    <span class="cat-icon">🍮</span>
+                    <span>মিষ্টি<br><i>Sweet</i></span>
+                </button>
+            </div>
+
+            <!-- Promo banner -->
+            <div class="promo-banner">
+                <div class="promo-text">
+                    <span class="promo-tag">আজকের অফার</span>
+                    <h3>২৫% ছাড় মসলা চা-তে</h3>
+                    <p>Use code <b>CHAI25</b></p>
+                </div>
+                <img src="images/image8.png" alt="" />
+            </div>
+
+            <div class="section-head">
+                <h3>জনপ্রিয় আইটেম</h3>
+                <a href="#" class="muted-link">সব দেখুন →</a>
+            </div>
+
+            <!-- PRODUCT GRID — populated by JS -->
+            <div class="product-grid" id="productGrid"></div>
+        </section>
+
+        <!-- ============= SCREEN 4 — PRODUCT DETAILS ============= -->
+        <section class="screen" data-screen="product">
+            <div class="product-hero" id="productHero">
+                <img id="prodImg" src="images/image2.png" alt="" />
+                <button class="back-fab" data-go="home">‹</button>
+                <button class="fav-fab">♡</button>
+            </div>
+
+            <div class="product-sheet">
+                <div class="prod-head">
+                    <div>
+                        <h2 id="prodName">রং চা</h2>
+                        <p class="prod-en" id="prodEn">Raw Tea</p>
+                    </div>
+                    <div class="prod-price">
+                        <span class="taka">৳</span><span id="prodPrice">15</span>
+                    </div>
+                </div>
+
+                <div class="prod-meta">
+                    <span class="meta-chip">⭐ 4.8</span>
+                    <span class="meta-chip">🕐 5-10 min</span>
+                    <span class="meta-chip">🔥 Hot</span>
+                </div>
+
+                <p class="prod-desc" id="prodDesc">
+                    Authentic local roadside tea with strong flavor — a perfect everyday pick-me-up brewed the traditional Bangladeshi way.
+                </p>
+
+                <h4 class="block-title">কাস্টমাইজেশন <i>· Customize</i></h4>
+                <div class="custom-list" id="customList">
+                    <label class="custom-row">
+                        <span class="c-info"><b>Extra Milk</b><i>অতিরিক্ত দুধ</i></span>
+                        <span class="c-price">+৳5</span>
+                        <span class="c-toggle"><input type="checkbox" data-price="5" /><span class="check-box"></span></span>
+                    </label>
+                    <label class="custom-row">
+                        <span class="c-info"><b>Less Sugar</b><i>কম চিনি</i></span>
+                        <span class="c-price">Free</span>
+                        <span class="c-toggle"><input type="checkbox" data-price="0" /><span class="check-box"></span></span>
+                    </label>
+                    <label class="custom-row">
+                        <span class="c-info"><b>Extra Spices</b><i>অতিরিক্ত মসলা</i></span>
+                        <span class="c-price">+৳8</span>
+                        <span class="c-toggle"><input type="checkbox" data-price="8" /><span class="check-box"></span></span>
+                    </label>
+                    <label class="custom-row">
+                        <span class="c-info"><b>Ginger Boost</b><i>আদা</i></span>
+                        <span class="c-price">+৳3</span>
+                        <span class="c-toggle"><input type="checkbox" data-price="3" /><span class="check-box"></span></span>
+                    </label>
+                    <label class="custom-row">
+                        <span class="c-info"><b>Lemon</b><i>লেবু</i></span>
+                        <span class="c-price">+৳2</span>
+                        <span class="c-toggle"><input type="checkbox" data-price="2" /><span class="check-box"></span></span>
+                    </label>
+                </div>
+
+                <h4 class="block-title">পরিমাণ <i>· Quantity</i></h4>
+                <div class="qty-large">
+                    <button class="qty-btn" id="prodMinus">−</button>
+                    <span class="qty-num" id="prodQty">1</span>
+                    <button class="qty-btn" id="prodPlus">+</button>
+                </div>
+
+                <div class="add-cart-bar">
+                    <div>
+                        <p class="muted-xs">Total</p>
+                        <p class="add-total">৳ <span id="addTotal">15</span></p>
+                    </div>
+                    <button class="btn-primary ripple" id="addToCartBtn">
+                        Add to Cart 🛒
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============= SCREEN 5 — CART & CHECKOUT ============= -->
+        <section class="screen" data-screen="cart">
+            <header class="page-header">
+                <button class="back-btn" data-go="home">‹</button>
+                <h2>আমার কার্ট</h2>
+                <button class="ghost-btn" id="clearCart">Clear</button>
+            </header>
+
+            <div class="cart-empty" id="cartEmpty">
+                <div class="empty-illu">🛒</div>
+                <h3>কার্ট খালি</h3>
+                <p>Browse menu & add some hot chai!</p>
+                <button class="btn-primary" data-go="home">Go Shopping</button>
+            </div>
+
+            <div class="cart-content" id="cartContent">
+                <div class="cart-list" id="cartList"></div>
+
+                <h4 class="block-title">📍 Delivery Address</h4>
+                <div class="addr-card">
+                    <textarea id="addrInput" placeholder="House 24, Block C, Mirpur 10, Dhaka">House 24, Block C, Mirpur 10, Dhaka</textarea>
+                    <div class="addr-tags">
+                        <button class="addr-chip active">🏠 Home</button>
+                        <button class="addr-chip">🏢 Office</button>
+                        <button class="addr-chip">📍 Other</button>
+                    </div>
+                </div>
+
+                <h4 class="block-title">💬 Notes</h4>
+                <input type="text" class="note-input" placeholder="Extra spice, less sugar, ring bell…" />
+
+                <div class="totals-card">
+                    <div class="t-row"><span>Subtotal</span><span>৳ <i id="subtotal">0</i></span></div>
+                    <div class="t-row"><span>Delivery Fee</span><span>৳ <i id="deliveryFee">15</i></span></div>
+                    <div class="t-row"><span>Service</span><span>৳ <i id="service">5</i></span></div>
+                    <div class="t-row total"><span>Total</span><span>৳ <i id="grandTotal">20</i></span></div>
+                </div>
+
+                <button class="btn-primary btn-block btn-lg ripple" id="proceedPay">
+                    Proceed to Payment →
+                </button>
+            </div>
+        </section>
+
+        <!-- ============= SCREEN 6 — PAYMENT ============= -->
+        <section class="screen" data-screen="payment">
+            <header class="page-header">
+                <button class="back-btn" data-go="cart">‹</button>
+                <h2>Payment</h2>
+                <span style="width:36px"></span>
+            </header>
+
+            <div class="pay-amount">
+                <p class="muted-xs">Total amount</p>
+                <h1>৳ <span id="payTotal">0</span></h1>
+                <p class="muted-xs">Secure payment · SSL encrypted</p>
+            </div>
+
+            <h4 class="block-title">পেমেন্ট মাধ্যম <i>· Choose method</i></h4>
+
+            <div class="pay-methods" id="payMethods">
+                <label class="pay-method" data-method="bkash">
+                    <input type="radio" name="pay" />
+                    <span class="pm-logo bkash">bKash</span>
+                    <span class="pm-text">
+                        <b>bKash</b>
+                        <i>Mobile Wallet · Most popular</i>
+                    </span>
+                    <span class="pm-check">✓</span>
+                </label>
+                <label class="pay-method" data-method="nagad">
+                    <input type="radio" name="pay" />
+                    <span class="pm-logo nagad">নগদ</span>
+                    <span class="pm-text">
+                        <b>Nagad</b>
+                        <i>Digital Financial Service</i>
+                    </span>
+                    <span class="pm-check">✓</span>
+                </label>
+                <label class="pay-method" data-method="rocket">
+                    <input type="radio" name="pay" />
+                    <span class="pm-logo rocket">Rocket</span>
+                    <span class="pm-text">
+                        <b>Rocket</b>
+                        <i>DBBL Mobile Banking</i>
+                    </span>
+                    <span class="pm-check">✓</span>
+                </label>
+                <label class="pay-method" data-method="cod">
+                    <input type="radio" name="pay" checked />
+                    <span class="pm-logo cod">💵</span>
+                    <span class="pm-text">
+                        <b>Cash on Delivery</b>
+                        <i>ক্যাশ অন ডেলিভারি</i>
+                    </span>
+                    <span class="pm-check">✓</span>
+                </label>
+            </div>
+
+            <button class="btn-primary btn-block btn-lg ripple" id="confirmPay">
+                Confirm Payment
+            </button>
+        </section>
+
+        <!-- ============= LOADING OVERLAY ============= -->
+        <div class="pay-loading" id="payLoading">
+            <div class="lock-spinner">
+                <svg viewBox="0 0 80 80" width="80" height="80">
+                    <circle cx="40" cy="40" r="34" fill="none" stroke="#FBE7E8" stroke-width="6" />
+                    <circle cx="40" cy="40" r="34" fill="none" stroke="#D6292D" stroke-width="6"
+                            stroke-linecap="round" stroke-dasharray="60 200" />
+                </svg>
+                <div class="lock-icon">🔒</div>
+            </div>
+            <h3>Processing securely…</h3>
+            <p class="muted-xs">Please don't close the app</p>
+            <div class="proc-steps">
+                <span class="ps active">Verifying</span>
+                <span class="ps">Encrypting</span>
+                <span class="ps">Confirming</span>
+            </div>
+        </div>
+
+        <!-- ============= SCREEN 7 — LIVE TRACKING ============= -->
+        <section class="screen" data-screen="tracking">
+            <header class="page-header transparent">
+                <button class="back-btn light" data-go="home">‹</button>
+                <h2>Live Tracking</h2>
+                <button class="icon-btn light">⋯</button>
+            </header>
+
+            <div class="map-area">
+                <img src="images/image7.png" alt="map" class="map-img" />
+
+                <!-- Animated route path -->
+                <svg class="route-svg" viewBox="0 0 390 500" preserveAspectRatio="none">
+                    <path id="routePath"
+                          d="M 60 440 Q 100 380, 130 340 T 200 230 Q 250 170, 310 90"
+                          fill="none" stroke="#D6292D" stroke-width="4"
+                          stroke-linecap="round" stroke-dasharray="8 6" />
+                </svg>
+
+                <!-- Destination pin (user) -->
+                <div class="map-pin destination">
+                    <div class="pin-pulse"></div>
+                    <div class="pin-icon">🏠</div>
+                </div>
+
+                <!-- Moving rider -->
+                <div class="map-pin rider" id="riderPin">
+                    <div class="rider-emoji">🛵</div>
+                </div>
+            </div>
+
+            <div class="track-sheet">
+                <div class="track-status">
+                    <div class="status-dot"></div>
+                    <div>
+                        <h4>On the way <span class="eta-tag">ETA: <span id="etaMin">5</span> mins</span></h4>
+                        <p>ডেলিভারি বয় আপনার থেকে <b><span id="distMeters">450</span> মিটার</b> দূরে আছে</p>
+                    </div>
+                </div>
+
+                <div class="progress-line">
+                    <div class="progress-fill" id="progressFill"></div>
+                    <span class="milestone done">📦</span>
+                    <span class="milestone done">🍵</span>
+                    <span class="milestone current" id="msRider">🛵</span>
+                    <span class="milestone" id="msHome">🏠</span>
+                </div>
+
+                <div class="rider-card">
+                    <img src="images/image6.png" alt="rider" class="rider-avatar" />
+                    <div class="rider-info">
+                        <h4>Karim Ahmed</h4>
+                        <p class="muted-xs">Your Cha Wala</p>
+                        <div class="rating-badge">
+                            <span class="star">⭐</span> <b>4.9</b> <i>(312 deliveries)</i>
+                        </div>
+                    </div>
+                    <div class="rider-actions">
+                        <button class="round-btn green">📞</button>
+                        <button class="round-btn red">💬</button>
+                    </div>
+                </div>
+
+                <div class="order-mini">
+                    <p class="muted-xs">Order #VR-<span id="orderId">000000</span></p>
+                    <p class="order-items" id="orderItems">—</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============= SCREEN 8 — SUCCESS ============= -->
+        <section class="screen" data-screen="success">
+            <div class="success-bg">
+                <span class="confetti c1"></span>
+                <span class="confetti c2"></span>
+                <span class="confetti c3"></span>
+                <span class="confetti c4"></span>
+                <span class="confetti c5"></span>
+                <span class="confetti c6"></span>
+                <span class="confetti c7"></span>
+                <span class="confetti c8"></span>
+            </div>
+
+            <div class="success-content">
+                <div class="check-container">
+                    <svg class="check-svg" viewBox="0 0 100 100" width="140" height="140">
+                        <circle class="ring-bg" cx="50" cy="50" r="45" fill="none" stroke="#FBE7E8" stroke-width="6" />
+                        <circle class="ring-draw" cx="50" cy="50" r="45" fill="none" stroke="#D6292D" stroke-width="6"
+                                stroke-linecap="round" />
+                        <polyline class="check-mark" points="30,52 45,67 72,38"
+                                  fill="none" stroke="#D6292D" stroke-width="7"
+                                  stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+
+                <h1 class="success-title">আপনার অর্ডারটি সফল হয়েছে!</h1>
+                <p class="success-sub">Your order has been delivered successfully</p>
+
+                <div class="receipt">
+                    <div class="receipt-head">
+                        <span>🧾 Receipt</span>
+                        <span class="r-id">#VR-<span id="successOrderId">000000</span></span>
+                    </div>
+                    <div class="receipt-body" id="receiptBody"></div>
+                    <div class="receipt-total">
+                        <span>Total Paid</span>
+                        <span class="paid">৳ <span id="successTotal">0</span></span>
+                    </div>
+                    <p class="paid-via">Paid via <b id="paidVia">Cash on Delivery</b></p>
+                </div>
+
+                <div class="rate-row">
+                    <p>আপনার অভিজ্ঞতা কেমন ছিল?</p>
+                    <div class="rate-stars" id="rateStars">
+                        <span data-r="1">⭐</span>
+                        <span data-r="2">⭐</span>
+                        <span data-r="3">⭐</span>
+                        <span data-r="4">⭐</span>
+                        <span data-r="5">⭐</span>
+                    </div>
+                </div>
+
+                <button class="btn-primary btn-block btn-lg ripple" id="orderMoreBtn">
+                    Order More ☕
+                </button>
+                <button class="btn-ghost btn-block" id="goHomeBtn">Back to Home</button>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Home indicator -->
+    <div class="home-indicator"></div>
+</div>
+
+<!-- Toast notification -->
+<div class="toast" id="toast"></div>
+
+<!-- Bottom nav (only shown on main flow screens) -->
+<!-- Kept inside phone via JS visibility control -->
+
+<script src="app.js"></script>
+</body>
+</html>
